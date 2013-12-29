@@ -18,7 +18,7 @@ zMin = input("What is the minimum Z value?: ")
 zMax = input("What is the maximum Z value?: ")
 
 #How fast do we want to go
-mmsspeed = input("What is mm/s speed?: ")
+mmsSpeed = input("What is mm/s speed?: ")
 
 #How long do we want the testing to run
 testTime = (input("How many minutes to test?: "))*60
@@ -29,13 +29,13 @@ autoHome = raw_input("Would you like to automatically home when finished (Y|N)?:
 
 
 #Convert the mm/s speed to mm/min for the G0 F speed
-fSpeed = mmsspeed*60
+fSpeed = mmsSpeed*60
 
 #calculate how far we move on each travel
 d = float(zMax - zMin)
 
 #how long should it take to cover the distance d
-t1 = float(d/mmsspeed)
+t1 = float(d/mmsSpeed)
 
 #how many times does the move need to happen to last the tTime
 lineCount = int(round((testTime/t1)))
