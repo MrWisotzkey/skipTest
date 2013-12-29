@@ -23,6 +23,11 @@ mmsspeed = input("What is mm/s speed?: ")
 #How long do we want the testing to run
 testTime = (input("How many minutes to test?: "))*60
 
+
+#Include automatic home when finished
+autoHome = raw_input("Would you like to automatically home when finished (Y|N)?: ")
+
+
 #Convert the mm/s speed to mm/min for the G0 F speed
 fSpeed = mmsspeed*60
 
@@ -42,6 +47,7 @@ f.write (";testTime=" + str(testTime)+"\n")
 f.write (";fSpeed="+ str(fSpeed)+"\n")
 f.write (";t1="+str(t1)+"\n")
 f.write (";lineCount=" +str(lineCount)+"\n")
+f.write ("autoHome=" +autoHome +"\n")
 f.write ("\n")
 
 #GCode generation
@@ -57,6 +63,11 @@ f.write ("G0 F" + str(fSpeed)+ " ;set feedrate\n")
 for x in range(0,(lineCount/2)):
     f.write ("G0 Z"+str(zMin)+"\n")
     f.write ("G0 Z"+str(zMax)+"\n")
+
+#If we opted to add the autohome at the end, include G28
+if autoHome in ['Y', 'y']:
+    f.write ("G28")
+
 
 #close the file properly
 f.close()
