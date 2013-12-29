@@ -47,7 +47,7 @@ f.write (";testTime=" + str(testTime)+"\n")
 f.write (";fSpeed="+ str(fSpeed)+"\n")
 f.write (";t1="+str(t1)+"\n")
 f.write (";lineCount=" +str(lineCount)+"\n")
-f.write ("autoHome=" +autoHome +"\n")
+f.write (";autoHome=" +autoHome +"\n")
 f.write ("\n")
 
 #GCode generation
